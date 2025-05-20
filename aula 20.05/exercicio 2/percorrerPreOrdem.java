@@ -1,4 +1,4 @@
-public class percorrerEmOrdem {
+public class percorrerPreOrdem {
     public void percorrerPreOrdem(No node) {
         if (node != null) {
             System.out.println(node.valor);
