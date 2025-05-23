@@ -1,3 +1,6 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class No {
     String valor;
     No esquerda, direita;
@@ -43,6 +46,25 @@ public class No {
             percorrerPosOrdem(node.esquerda);
             percorrerPosOrdem(node.direita);
             System.out.println(node.valor);
+            }
+        }
+    }
+
+    public void buscaEmNivel() {
+        No raiz = null;
+        if (raiz == null) {
+            return;
+        }
+        Queue<No> fila = new LinkedList<>();
+        fila.add(raiz);
+        while (!fila.isEmpty()) {
+            No noAtual = fila.poll();
+            System.out.println(noAtual.valor);
+            if (noAtual.esquerda != null) {
+                fila.add(noAtual.esquerda);
+            }
+            if (noAtual.direita != null) {
+                fila.add(noAtual.direita);
             }
         }
     }
