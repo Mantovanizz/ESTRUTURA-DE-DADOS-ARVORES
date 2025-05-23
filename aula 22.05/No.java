@@ -9,6 +9,7 @@ public class No {
         this.esquerda = null;
         this.direita = null;
     }
+    
     public int contarNos() {
         Object raiz = null;
         if (raiz == null) return 0;
@@ -25,5 +26,18 @@ public class No {
         }
 
         return contador;
+    }
+
+     public void percorrerPreOrdem() {
+        Stack<No> pilha = new Stack<>();
+        pilha.push(this);
+
+        while (!pilha.isEmpty()) {
+            No atual = pilha.pop();
+            System.out.println(atual.valor);
+
+            if (atual.direita != null) pilha.push(atual.direita);
+            if (atual.esquerda != null) pilha.push(atual.esquerda);
+        }
     }
 }
