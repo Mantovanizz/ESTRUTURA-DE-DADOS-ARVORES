@@ -55,7 +55,7 @@ public class No {
             atual = atual.direita;
         }
     }
-    
+
     public void percorrerPosOrdem() {
         Stack<No> pilha = new Stack<>();
         Stack<No> resultado = new Stack<>();
@@ -73,5 +73,18 @@ public class No {
             System.out.println(resultado.pop().valor);
         }
     }
+    public void buscaEmNivel() {
+        No raiz = null;
+        if (raiz == null) return;
 
+        Stack<No> fila = new Stack<>();
+        fila.push(raiz);
+
+        while (!fila.isEmpty()) {
+            No noAtual = fila.pop();
+            System.out.println(noAtual.valor);
+            if (noAtual.esquerda != null) fila.push(noAtual.esquerda);
+            if (noAtual.direita != null) fila.push(noAtual.direita);
+        }
+    }
 }
