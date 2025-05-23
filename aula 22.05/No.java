@@ -54,5 +54,24 @@ public class No {
             System.out.println(atual.valor);
             atual = atual.direita;
         }
-    }   
+    }
+    
+    public void percorrerPosOrdem() {
+        Stack<No> pilha = new Stack<>();
+        Stack<No> resultado = new Stack<>();
+        pilha.push(this);
+
+        while (!pilha.isEmpty()) {
+            No atual = pilha.pop();
+            resultado.push(atual);
+
+            if (atual.esquerda != null) pilha.push(atual.esquerda);
+            if (atual.direita != null) pilha.push(atual.direita);
+        }
+
+        while (!resultado.isEmpty()) {
+            System.out.println(resultado.pop().valor);
+        }
+    }
+
 }
