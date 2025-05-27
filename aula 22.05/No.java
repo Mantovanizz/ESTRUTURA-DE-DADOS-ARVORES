@@ -87,4 +87,14 @@ public class No {
             if (noAtual.direita != null) fila.push(noAtual.direita);
         }
     }
+    public int contarFolhasRecursivo() {
+    if (this == null) return 0;
+    if (esquerda == null && direita == null) {
+        return 1;
+    }
+    int folhas = 0;
+    if (esquerda != null) folhas += esquerda.contarFolhasRecursivo();
+    if (direita != null) folhas += direita.contarFolhasRecursivo();
+    return folhas;
+    }
 }
