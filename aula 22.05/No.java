@@ -88,13 +88,29 @@ public class No {
         }
     }
     public int contarFolhasRecursivo() {
-    if (this == null) return 0;
-    if (esquerda == null && direita == null) {
-        return 1;
+        if (this == null) return 0;
+        if (esquerda == null && direita == null) {
+            return 1;
+        }
+        int folhas = 0;
+            if (esquerda != null) folhas += esquerda.contarFolhasRecursivo();
+            if (direita != null) folhas += direita.contarFolhasRecursivo();
+        return folhas;
     }
-    int folhas = 0;
-    if (esquerda != null) folhas += esquerda.contarFolhasRecursivo();
-    if (direita != null) folhas += direita.contarFolhasRecursivo();
-    return folhas;
-    }
+
+    public int contarFolhas() {
+        int folhas = 0;
+            Stack<No> pilha = new Stack<>();
+            pilha.push(this);
+
+        while (!pilha.isEmpty()) {
+            No atual = pilha.pop();
+            if (atual.esquerda == null && atual.direita == null) {
+                folhas++;
+            }
+            if (atual.direita != null) pilha.push(atual.direita);
+            if (atual.esquerda != null) pilha.push(atual.esquerda);
+        }
+            return folhas;
+}
 }
